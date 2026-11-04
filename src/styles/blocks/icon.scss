@@ -19,11 +19,39 @@
   }
 
   &--menu {
-    background-image: url(../images/icons/icon-burger-menu.svg);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    padding-inline: 3px;
 
-    &:hover {
-      background-image: url(../images/icons/icon-burger-menu-hover.svg);
+    @include on-tablet {
+      gap: 4px;
+      padding-inline: 4px;
     }
+  }
+
+  &__line {
+    height: 2px;
+    border-radius: 1px;
+    background-color: $main-text-color;
+
+    transform-origin: left;
+    transition: transform $effect-duration $effect-easing;
+
+    @include on-tablet {
+      height: 3px;
+      border-radius: 1.5px;
+    }
+  }
+
+  &--menu:hover &__line:first-child {
+    transform: scaleX(0.72);
+  }
+
+  &--menu:hover &__line:last-child {
+    transform: scaleX(0.5);
   }
 
   &--close {
